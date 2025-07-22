@@ -2,3 +2,4 @@
 /LangGraph/.env
 /LlamaIndex/.env
 .env
+.idea
