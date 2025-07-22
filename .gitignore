@@ -1,4 +1,6 @@
 /LangChain/.env
+/LangChain/Chinook.db
+/LangChain/feature-examples/Chinook.db
 /LangGraph/.env
 /LlamaIndex/.env
 .env
