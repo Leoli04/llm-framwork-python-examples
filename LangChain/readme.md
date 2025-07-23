@@ -82,7 +82,7 @@ pip install  langchain-chroma
  | Chroma           | 否                            | 轻量级嵌入式向量库，随应用启动，数据可持久化到本地                        |
  | Milvus           | 是                            | 需要单独部署，类似 MySQL 需要服务运行                         |
  | Pinecone         | 否（但需要注册云服务）         | 通过 API 访问，无需自部署，但需要网络连接和 API key            |
-| faiss-cpu         | 否                         | 高性能本地检索引擎            |
+| faiss        | 否                         | 高性能本地检索引擎            |
 
 -  查看自己安装库的版本
 ```shell
