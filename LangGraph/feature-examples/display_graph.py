@@ -1,19 +1,23 @@
 import os
 import subprocess
 import sys
-from langchain_core.runnables.graph import MermaidDrawMethod
+from langchain_core.runnables.graph import MermaidDrawMethod, CurveStyle
 import random
 
 
-def display_graph(graph,num_str="01", output_folder="output"):
+def display_graph(graph,output_folder="output", file_name="graph"):
     # Code to visualise the graph, we will use this in all lessons
-    mermaid_png = graph.get_graph(xray=1).draw_mermaid_png(draw_method=MermaidDrawMethod.API)
+    mermaid_png = graph.get_graph(xray=1).draw_mermaid_png(
+        draw_method=MermaidDrawMethod.API,
+    )
 
     # Create output folder if it doesn't exist
-    output_folder = "."
-    os.makedirs(output_folder, exist_ok=True)
+    output = f"./{output_folder}"
+    os.makedirs(output, exist_ok=True)
 
-    filename = os.path.join(output_folder, f"{num_str}_graph_{random.randint(1, 100000)}.png")
+    file_name = os.path.splitext(file_name)[0]
+
+    filename = os.path.join(output, f"{file_name}_{random.randint(1, 100000)}.png")
     with open(filename, 'wb') as f:
         f.write(mermaid_png)
 

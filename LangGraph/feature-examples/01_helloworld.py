@@ -44,4 +44,4 @@ result = graph.invoke({"greeting": "from LangGraph!"})
 print(result)
 
 # 将graph可视化
-display_graph(graph,"01")
+display_graph(graph, file_name=os.path.basename(__file__))
