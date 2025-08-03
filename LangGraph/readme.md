@@ -16,6 +16,9 @@ pip install psutil[all]  # 包含额外功能（如进程线程操作）`
 - Unstructured 是一个更强大的文档处理库，专为处理非结构化数据（如 PDF、Word、HTML 等）设计。它能保留文档结构（标题、列表等），适合复杂文档的预处理。安装`pip install unstructured[pdf]`
 
 - Beautiful Soup 是一个用于解析 HTML 和 XML 文档的流行 Python 库，常用于网页抓取和数据提取。安装：`pip install beautifulsoup4`
+
+- PythonREPLTool 是 LangChain 框架中的一个工具类，它允许语言模型（LLM）通过执行 Python 代码来解决问题。这个工具提供了一个安全的 Python REPL（Read-Eval-Print Loop，交互式解释器）环境，让语言模型能够执行代码并获取结果。
+安装`pip install langchain langchain-experimental`
   
 ## 向量数据库
 

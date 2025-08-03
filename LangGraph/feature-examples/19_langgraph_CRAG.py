@@ -44,7 +44,7 @@ def load_prepare_docs():
     # Add to vectorstore
     vectorstore = Chroma.from_documents(
         documents=doc_splits,
-        collection_name="self-rag-chroma",
+        collection_name="crag-chroma",
         embedding=DashScopeEmbeddings(),
     )
     return vectorstore.as_retriever()
