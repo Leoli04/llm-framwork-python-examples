@@ -83,3 +83,20 @@ app.add_middleware(
     allow_headers=["*"],                      # 允许的请求头
 )
 ```
+
+## agent项目结构
+
+```text
+项目名/
+├── src/
+│   ├── __pycache__/          # Python自动生成的字节码缓存
+│   ├── support_agent.py       # 客户支持AI代理的核心实现
+├── tests/
+│   ├── __pycache__/          # 测试代码的字节码缓存
+│   ├── test_support_agent.py  # 所有节点和工作流的TDD测试
+├── .env                      # 环境变量配置文件
+├── pytest.ini                # pytest测试框架配置
+├── readme.md                 # 项目文档
+├── requirements.txt          # 项目依赖清单
+├── setup.py                  # 包安装配置文件
+```
