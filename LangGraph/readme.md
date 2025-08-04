@@ -49,3 +49,37 @@ pip install psutil[all]  # 包含额外功能（如进程线程操作）`
 - Redis Vector Search——支持向量相似性搜索的Redis模块，优化用于云环境。
   
 - Vespa——开源的搜索和推荐引擎，适用于本地部署。
+
+## web 服务
+
+### flask与fastapi启动方式
+
+- Flask 的启动方式：
+    - **开发环境启动**： 使用内置的同步 WSGI 服务器（默认仅支持同步请求，性能较低，无法利用多核 CPU），
+      通过 `app.run(debug=True)` 启动；
+    - **生产环境部署**： 需依赖第三方 WSGI 服务器（如 Gunicorn）,`gunicorn app:app  # 多进程处理请求`
+    
+- fastapi 的启动方式：
+    - 开发与生产统一启动： 依赖 ASGI 服务器 Uvicorn。`uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)  # 异步非阻塞`;
+      生产环境可通过多 Worker 提升性能：`uvicorn app:app --workers 4  # 启动 4 个进程`
+      
+### flask与fastapi跨域请求
+- Flask 的跨域方案 依赖扩展库，需安装 flask-cors：`pip install flask-cors`,配置如下：
+  ```python
+from flask_cors import CORS
+app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})  # 允许特定源
+```
+-  FastAPI 的跨域方案 内置中间件：无需额外安装库.配置如下：
+```python
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI
+
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # 指定允许的源
+    allow_methods=["GET", "POST"],            # 允许的 HTTP 方法
+    allow_headers=["*"],                      # 允许的请求头
+)
+```
