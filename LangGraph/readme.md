@@ -100,3 +100,13 @@ app.add_middleware(
 ├── requirements.txt          # 项目依赖清单
 ├── setup.py                  # 包安装配置文件
 ```
+
+## 依赖
+
+```shell
+# 生成依赖文件
+pip freeze > requirements.txt
+
+# 安装依赖
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
